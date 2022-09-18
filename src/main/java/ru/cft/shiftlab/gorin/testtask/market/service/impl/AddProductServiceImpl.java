@@ -16,6 +16,8 @@ import ru.cft.shiftlab.gorin.testtask.market.repository.model.MonitorEntity;
 import ru.cft.shiftlab.gorin.testtask.market.repository.model.PcEntity;
 import ru.cft.shiftlab.gorin.testtask.market.service.AddProductService;
 
+import java.util.Optional;
+
 @Service
 public class AddProductServiceImpl implements AddProductService {
 
@@ -36,7 +38,7 @@ public class AddProductServiceImpl implements AddProductService {
     }
 
     @Override
-    public long saveMonitor(MonitorFeaturesDTO monitorDTO) {
+    public Optional<MonitorEntity> saveMonitor(MonitorFeaturesDTO monitorDTO) {
         MonitorEntity monitorEntity = new MonitorEntity();
         monitorEntity.setSerialNumber(monitorDTO.getSerialNumber());
         monitorEntity.setManufacturer(monitorDTO.getManufacturer());
@@ -46,11 +48,11 @@ public class AddProductServiceImpl implements AddProductService {
 
         monitorEntity.setDiagonalSize(monitorDTO.getDiagonalSize());
 
-        return monitorRepository.save(monitorEntity).getId();
+        return monitorRepository.save(monitorEntity);
     }
 
     @Override
-    public long saveLaptop(LaptopFeaturesDTO laptopDTO) {
+    public Optional<LaptopEntity> saveLaptop(LaptopFeaturesDTO laptopDTO) {
         LaptopEntity laptopEntity = new LaptopEntity();
         laptopEntity.setSerialNumber(laptopDTO.getSerialNumber());
         laptopEntity.setManufacturer(laptopDTO.getManufacturer());
@@ -60,11 +62,11 @@ public class AddProductServiceImpl implements AddProductService {
 
         laptopEntity.setSize(laptopDTO.getSize());
 
-        return laptopRepository.save(laptopEntity).getId();
+        return laptopRepository.save(laptopEntity);
     }
 
     @Override
-    public long saveHdd(HddFeaturesDTO hddDTO) {
+    public Optional<HddEntity> saveHdd(HddFeaturesDTO hddDTO) {
         HddEntity hddEntity = new HddEntity();
         hddEntity.setSerialNumber(hddDTO.getSerialNumber());
         hddEntity.setManufacturer(hddDTO.getManufacturer());
@@ -75,11 +77,11 @@ public class AddProductServiceImpl implements AddProductService {
         hddEntity.setMemoryVolumeValue(hddDTO.getMemoryVolumeValue());
         hddEntity.setMemoryVolume(hddDTO.getMemoryVolume());
 
-        return hddRepository.save(hddEntity).getId();
+        return hddRepository.save(hddEntity);
     }
 
     @Override
-    public long savePc(PcFeaturesDTO pcDTO) {
+    public Optional<PcEntity> savePc(PcFeaturesDTO pcDTO) {
         PcEntity pcEntity = new PcEntity();
         pcEntity.setSerialNumber(pcDTO.getSerialNumber());
         pcEntity.setManufacturer(pcDTO.getManufacturer());
@@ -89,6 +91,6 @@ public class AddProductServiceImpl implements AddProductService {
 
         pcEntity.setFormFactor(pcDTO.getFormFactor());
 
-        return pcRepository.save(pcEntity).getId();
+        return pcRepository.save(pcEntity);
     }
 }
