@@ -1,4 +1,4 @@
-package ru.cft.shiftlab.gorin.testtask.market.controller;
+package ru.cft.shiftlab.gorin.testtask.market.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.ProductTypeNotFoundException;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.RecordNotFoundException;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.TooManyRecordsFoundException;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.*;
-import ru.cft.shiftlab.gorin.testtask.market.service.SearchProductService;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.*;
+import ru.cft.shiftlab.gorin.testtask.market.services.SearchProductService;
 
 import java.util.List;
 import java.util.NoSuchElementException;

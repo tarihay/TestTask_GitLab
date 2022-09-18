@@ -1,4 +1,4 @@
-package ru.cft.shiftlab.gorin.testtask.market.controller;
+package ru.cft.shiftlab.gorin.testtask.market.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,11 +10,11 @@ import ru.cft.shiftlab.gorin.testtask.market.model.HddFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.LaptopFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.MonitorFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.PcFeaturesDTO;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.HddEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.LaptopEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.MonitorEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.PcEntity;
-import ru.cft.shiftlab.gorin.testtask.market.service.AddProductService;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.HddEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.LaptopEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
+import ru.cft.shiftlab.gorin.testtask.market.services.AddProductService;
 
 
 @RestController

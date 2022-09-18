@@ -1,5 +1,6 @@
-package ru.cft.shiftlab.gorin.testtask.market.repository.model;
+package ru.cft.shiftlab.gorin.testtask.market.repositories.model;
 
+import com.sun.istack.NotNull;
 import ru.cft.shiftlab.gorin.testtask.market.model.enums.PcFormFactors;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "personal_computers")
 public class PcEntity extends ProductEntity{
+    @NotNull
     @Column(name = "form_factor")
     private PcFormFactors formFactor;
 

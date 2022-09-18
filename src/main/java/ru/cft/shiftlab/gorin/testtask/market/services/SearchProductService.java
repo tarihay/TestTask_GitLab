@@ -1,6 +1,6 @@
-package ru.cft.shiftlab.gorin.testtask.market.service;
+package ru.cft.shiftlab.gorin.testtask.market.services;
 
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.*;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.*;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package ru.cft.shiftlab.gorin.testtask.market.controller;
+package ru.cft.shiftlab.gorin.testtask.market.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -11,12 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.*;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.*;
-import ru.cft.shiftlab.gorin.testtask.market.service.SearchProductService;
-import ru.cft.shiftlab.gorin.testtask.market.service.UpdateService;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.*;
+import ru.cft.shiftlab.gorin.testtask.market.services.SearchProductService;
+import ru.cft.shiftlab.gorin.testtask.market.services.UpdateService;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/market/update")

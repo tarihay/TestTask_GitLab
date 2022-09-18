@@ -1,10 +1,10 @@
-package ru.cft.shiftlab.gorin.testtask.market.service.impl;
+package ru.cft.shiftlab.gorin.testtask.market.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.cft.shiftlab.gorin.testtask.market.repository.*;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.*;
-import ru.cft.shiftlab.gorin.testtask.market.service.SearchProductService;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.*;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.*;
+import ru.cft.shiftlab.gorin.testtask.market.services.SearchProductService;
 
 import java.util.List;
 import java.util.Optional;

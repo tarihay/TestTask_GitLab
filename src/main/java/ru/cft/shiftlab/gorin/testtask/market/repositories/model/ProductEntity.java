@@ -1,4 +1,4 @@
-package ru.cft.shiftlab.gorin.testtask.market.repository.model;
+package ru.cft.shiftlab.gorin.testtask.market.repositories.model;
 
 import com.sun.istack.NotNull;
 import ru.cft.shiftlab.gorin.testtask.market.model.enums.ProductType;
@@ -15,18 +15,23 @@ public abstract class ProductEntity {
     @Column(name = "id")
     private long id;
 
+    @NotNull
     @Column(name = "serial_number")
     private String serialNumber;
 
+    @NotNull
     @Column(name = "manufacturer")
     private String manufacturer;
 
+    @NotNull
     @Column(name = "price_value")
     private long priceValue;
 
+    @NotNull
     @Column(name = "amount")
     private int amount;
 
+    @NotNull
     @Column(name = "product_type")
     private ProductType productType;
 

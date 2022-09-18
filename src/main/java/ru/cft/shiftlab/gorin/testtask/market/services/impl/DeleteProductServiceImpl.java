@@ -1,9 +1,9 @@
-package ru.cft.shiftlab.gorin.testtask.market.service.impl;
+package ru.cft.shiftlab.gorin.testtask.market.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.cft.shiftlab.gorin.testtask.market.repository.ProductRepository;
-import ru.cft.shiftlab.gorin.testtask.market.service.DeleteProductService;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.ProductRepository;
+import ru.cft.shiftlab.gorin.testtask.market.services.DeleteProductService;
 
 @Service
 public class DeleteProductServiceImpl implements DeleteProductService {

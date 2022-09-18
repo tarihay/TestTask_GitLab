@@ -1,8 +1,8 @@
-package ru.cft.shiftlab.gorin.testtask.market.repository;
+package ru.cft.shiftlab.gorin.testtask.market.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.ProductEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.ProductEntity;
 
 import java.util.List;
 

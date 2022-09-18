@@ -1,16 +1,14 @@
-package ru.cft.shiftlab.gorin.testtask.market.service;
+package ru.cft.shiftlab.gorin.testtask.market.services;
 
 
 import ru.cft.shiftlab.gorin.testtask.market.model.HddFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.LaptopFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.MonitorFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.PcFeaturesDTO;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.HddEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.LaptopEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.MonitorEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.PcEntity;
-
-import java.util.Optional;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.HddEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.LaptopEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
 
 public interface AddProductService {
     MonitorEntity saveMonitor(MonitorFeaturesDTO monitorDTO);

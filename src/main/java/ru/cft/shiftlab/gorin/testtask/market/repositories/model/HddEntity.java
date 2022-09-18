@@ -1,5 +1,6 @@
-package ru.cft.shiftlab.gorin.testtask.market.repository.model;
+package ru.cft.shiftlab.gorin.testtask.market.repositories.model;
 
+import com.sun.istack.NotNull;
 import ru.cft.shiftlab.gorin.testtask.market.model.enums.MemoryVolumeOptions;
 
 import javax.persistence.*;
@@ -7,9 +8,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "hard_disk_drives")
 public class HddEntity extends ProductEntity {
+    @NotNull
     @Column(name = "memory_volume_value")
     private int memoryVolumeValue;
 
+    @NotNull
     @Column(name = "memory_volume")
     private MemoryVolumeOptions memoryVolume;
 

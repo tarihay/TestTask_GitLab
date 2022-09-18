@@ -1,4 +1,4 @@
-package ru.cft.shiftlab.gorin.testtask.market.service.impl;
+package ru.cft.shiftlab.gorin.testtask.market.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,17 +6,15 @@ import ru.cft.shiftlab.gorin.testtask.market.model.HddFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.LaptopFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.MonitorFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.PcFeaturesDTO;
-import ru.cft.shiftlab.gorin.testtask.market.repository.HddRepository;
-import ru.cft.shiftlab.gorin.testtask.market.repository.LaptopRepository;
-import ru.cft.shiftlab.gorin.testtask.market.repository.MonitorRepository;
-import ru.cft.shiftlab.gorin.testtask.market.repository.PcRepository;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.HddEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.LaptopEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.MonitorEntity;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.PcEntity;
-import ru.cft.shiftlab.gorin.testtask.market.service.AddProductService;
-
-import java.util.Optional;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.HddRepository;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.LaptopRepository;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.MonitorRepository;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.PcRepository;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.HddEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.LaptopEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
+import ru.cft.shiftlab.gorin.testtask.market.services.AddProductService;
 
 @Service
 public class AddProductServiceImpl implements AddProductService {

@@ -1,4 +1,4 @@
-package ru.cft.shiftlab.gorin.testtask.market.controller;
+package ru.cft.shiftlab.gorin.testtask.market.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.RecordNotFoundException;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.TooManyRecordsFoundException;
-import ru.cft.shiftlab.gorin.testtask.market.service.DeleteProductService;
-import ru.cft.shiftlab.gorin.testtask.market.service.SearchProductService;
+import ru.cft.shiftlab.gorin.testtask.market.services.DeleteProductService;
+import ru.cft.shiftlab.gorin.testtask.market.services.SearchProductService;
 
 @RestController
 @RequestMapping("/market/delete")
