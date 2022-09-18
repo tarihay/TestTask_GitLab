@@ -1,6 +1,5 @@
 package ru.cft.shiftlab.gorin.testtask.market.controller;
 
-import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +8,7 @@ import com.github.fge.jsonpatch.JsonPatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.*;
 import ru.cft.shiftlab.gorin.testtask.market.repository.model.*;
@@ -37,7 +37,7 @@ public class UpdateProductController {
         this.searchProductService = searchProductService;
     }
 
-    @PatchMapping(path = "/{id}", consumes = "application/json-patch+json")
+    @PatchMapping( "/{id}")
     public ResponseEntity<?> updateProduct(@PathVariable long id, @RequestBody JsonPatch patch) throws RecordNotFoundException, JsonParsingException {
         try {
             List<ProductEntity> products = searchProductService.findById(id);
@@ -119,6 +119,13 @@ public class UpdateProductController {
     public ResponseEntity<String> handleException(JsonParsingException exception) {
         final String jsonParsingExceptionMessage = "Json parsing passed unsuccessfully";
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonParsingExceptionMessage);
+    }
+
+    @ExceptionHandler({HttpMessageNotReadableException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<String> handleException(HttpMessageNotReadableException exception) {
+        String savingRecordExceptionMessage = "Looks like you have chosen wrong parameter.\nCheck form_factor if it is PC, memory_volume if HDD, size if it is laptop";
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage);
     }
 
     private MonitorEntity applyPatchToMonitor(

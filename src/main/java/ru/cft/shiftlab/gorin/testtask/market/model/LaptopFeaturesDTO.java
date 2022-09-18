@@ -1,15 +1,17 @@
 package ru.cft.shiftlab.gorin.testtask.market.model;
 
+import ru.cft.shiftlab.gorin.testtask.market.model.enums.LaptopSize;
+
 import javax.persistence.Column;
 
 public class LaptopFeaturesDTO extends ProductFeaturesDTO {
-    private int size;
+    private LaptopSize size;
 
-    public int getSize() {
+    public LaptopSize getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(LaptopSize size) {
         this.size = size;
     }
 }

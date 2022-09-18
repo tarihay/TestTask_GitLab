@@ -3,6 +3,7 @@ package ru.cft.shiftlab.gorin.testtask.market.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.SavingRecordException;
 import ru.cft.shiftlab.gorin.testtask.market.model.HddFeaturesDTO;
@@ -76,5 +77,12 @@ public class AddProductController {
     public ResponseEntity<String> handleException(SavingRecordException exception) {
         String savingRecordExceptionMessage = "Something went wrong during the saving the new record. Check input parameters\n";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage + exception.getMessage());
+    }
+
+    @ExceptionHandler({HttpMessageNotReadableException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<String> handleException(HttpMessageNotReadableException exception) {
+        String savingRecordExceptionMessage = "Looks like you have chosen wrong parameter.\nCheck form_factor if it is PC, memory_volume if HDD, size if it is laptop";
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage);
     }
 }

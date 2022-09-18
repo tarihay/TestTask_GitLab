@@ -1,11 +1,13 @@
 package ru.cft.shiftlab.gorin.testtask.market.model;
 
+import ru.cft.shiftlab.gorin.testtask.market.model.enums.MemoryVolumeOptions;
+
 import javax.persistence.Column;
 
 public class HddFeaturesDTO extends ProductFeaturesDTO {
     private int memoryVolumeValue;
 
-    private String memoryVolume;
+    private MemoryVolumeOptions memoryVolume;
 
     public int getMemoryVolumeValue() {
         return memoryVolumeValue;
@@ -15,11 +17,11 @@ public class HddFeaturesDTO extends ProductFeaturesDTO {
         this.memoryVolumeValue = memoryVolumeValue;
     }
 
-    public String getMemoryVolume() {
+    public MemoryVolumeOptions getMemoryVolume() {
         return memoryVolume;
     }
 
-    public void setMemoryVolume(String memoryVolume) {
+    public void setMemoryVolume(MemoryVolumeOptions memoryVolume) {
         this.memoryVolume = memoryVolume;
     }
 

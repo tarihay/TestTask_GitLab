@@ -1,5 +1,7 @@
 package ru.cft.shiftlab.gorin.testtask.market.model;
 
+import ru.cft.shiftlab.gorin.testtask.market.model.enums.ProductType;
+
 public class ProductFeaturesDTO {
     private String serialNumber;
 

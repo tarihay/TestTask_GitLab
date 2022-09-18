@@ -1,5 +1,7 @@
 package ru.cft.shiftlab.gorin.testtask.market.repository.model;
 
+import ru.cft.shiftlab.gorin.testtask.market.model.enums.MemoryVolumeOptions;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +11,7 @@ public class HddEntity extends ProductEntity {
     private int memoryVolumeValue;
 
     @Column(name = "memory_volume")
-    private String memoryVolume;
+    private MemoryVolumeOptions memoryVolume;
 
 
     public int getMemoryVolumeValue() {
@@ -20,11 +22,11 @@ public class HddEntity extends ProductEntity {
         this.memoryVolumeValue = memoryVolumeValue;
     }
 
-    public String getMemoryVolume() {
+    public MemoryVolumeOptions getMemoryVolume() {
         return memoryVolume;
     }
 
-    public void setMemoryVolume(String memoryVolume) {
+    public void setMemoryVolume(MemoryVolumeOptions memoryVolume) {
         this.memoryVolume = memoryVolume;
     }
 }

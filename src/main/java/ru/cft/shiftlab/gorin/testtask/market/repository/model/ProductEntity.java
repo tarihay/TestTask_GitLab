@@ -1,7 +1,7 @@
 package ru.cft.shiftlab.gorin.testtask.market.repository.model;
 
 import com.sun.istack.NotNull;
-import ru.cft.shiftlab.gorin.testtask.market.model.ProductType;
+import ru.cft.shiftlab.gorin.testtask.market.model.enums.ProductType;
 
 import javax.persistence.*;
 
