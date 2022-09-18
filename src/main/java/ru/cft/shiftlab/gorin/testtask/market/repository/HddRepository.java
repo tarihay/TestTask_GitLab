@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface HddRepository extends JpaRepository<HddEntity, Long> {
-    Optional<HddEntity> save(HddEntity hddEntity);
+    HddEntity save(HddEntity hddEntity);
 
     Optional<HddEntity> findById(long id);
 }

@@ -28,6 +28,9 @@ public class SearchProductController {
     public ResponseEntity<?> getById(@PathVariable long id)
             throws ProductTypeNotFoundException, RecordNotFoundException, TooManyRecordsFoundException {
         List<ProductEntity> products = searchProductService.findById(id);
+        if (products == null) {
+            throw new RecordNotFoundException();
+        }
         long numOfFoundProducts = products.size();
         if (numOfFoundProducts == 1) {
             ProductEntity product = products.get(0);
@@ -64,9 +67,6 @@ public class SearchProductController {
                     throw new ProductTypeNotFoundException();
             }
         }
-        else if (numOfFoundProducts == 0) {
-            throw new RecordNotFoundException();
-        }
         else {
             throw new TooManyRecordsFoundException();
         }
@@ -77,19 +77,21 @@ public class SearchProductController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleException(NoSuchElementException exception) {
         String savingRecordExceptionMessage = "Something went wrong during the searching the new record.\n";
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage + exception.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage);
     }
 
     @ExceptionHandler({RecordNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handleException(RecordNotFoundException exception) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+        String recordNotFoundMessage = "Record with such id was not found.\n";
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(recordNotFoundMessage);
     }
 
     @ExceptionHandler({TooManyRecordsFoundException.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<String> handleException(TooManyRecordsFoundException exception) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exception.getMessage());
+        String tooManyRecordsFoundMessage = "Accidentally found several records\n";
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(tooManyRecordsFoundMessage);
     }
 
 }

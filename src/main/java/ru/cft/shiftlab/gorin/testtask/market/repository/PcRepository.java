@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface PcRepository extends JpaRepository<PcEntity, Long> {
-    Optional<PcEntity> save(PcEntity pcEntity);
+    PcEntity save(PcEntity pcEntity);
 
     Optional<PcEntity> findById(long id);
 }

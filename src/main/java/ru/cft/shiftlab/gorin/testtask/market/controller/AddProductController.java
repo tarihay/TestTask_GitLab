@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.cft.shiftlab.gorin.testtask.market.exceptions.RecordNotFoundException;
+import ru.cft.shiftlab.gorin.testtask.market.exceptions.SavingRecordException;
 import ru.cft.shiftlab.gorin.testtask.market.model.HddFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.LaptopFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.MonitorFeaturesDTO;
@@ -15,7 +15,6 @@ import ru.cft.shiftlab.gorin.testtask.market.repository.model.MonitorEntity;
 import ru.cft.shiftlab.gorin.testtask.market.repository.model.PcEntity;
 import ru.cft.shiftlab.gorin.testtask.market.service.AddProductService;
 
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/market/add")
@@ -29,12 +28,9 @@ public class AddProductController {
 
     @PostMapping("/monitor")
     public ResponseEntity<?> addMonitor(@RequestBody MonitorFeaturesDTO monitorFeaturesDTO) {
-        MonitorEntity savedMonitor;
-        try {
-            savedMonitor = addProductService.saveMonitor(monitorFeaturesDTO).get();
-        }
-        catch (NoSuchElementException ex) {
-            throw new NoSuchElementException();
+        MonitorEntity savedMonitor = addProductService.saveMonitor(monitorFeaturesDTO);
+        if (savedMonitor == null) {
+            throw new SavingRecordException();
         }
         long id = savedMonitor.getId();
         StringBuilder response = new StringBuilder("The id of saved monitor is: " + id);
@@ -43,12 +39,9 @@ public class AddProductController {
 
     @PostMapping("/hdd")
     public ResponseEntity<?> addHdd(@RequestBody HddFeaturesDTO hddFeaturesDTO) {
-        HddEntity savedHdd;
-        try {
-            savedHdd = addProductService.saveHdd(hddFeaturesDTO).get();
-        }
-        catch (NoSuchElementException ex) {
-            throw new NoSuchElementException();
+        HddEntity savedHdd = addProductService.saveHdd(hddFeaturesDTO);
+        if (savedHdd == null) {
+            throw new SavingRecordException();
         }
         long id = savedHdd.getId();
         StringBuilder response = new StringBuilder("The id of saved hdd is: " + id);
@@ -57,12 +50,9 @@ public class AddProductController {
 
     @PostMapping("/laptop")
     public ResponseEntity<?> addLaptop(@RequestBody LaptopFeaturesDTO laptopFeaturesDTO) {
-        LaptopEntity savedLaptop;
-        try {
-            savedLaptop = addProductService.saveLaptop(laptopFeaturesDTO).get();
-        }
-        catch (NoSuchElementException ex) {
-            throw new NoSuchElementException();
+        LaptopEntity savedLaptop = addProductService.saveLaptop(laptopFeaturesDTO);
+        if (savedLaptop == null) {
+            throw new SavingRecordException();
         }
         long id = savedLaptop.getId();
         StringBuilder response = new StringBuilder("The id of saved laptop is: " + id);
@@ -71,12 +61,9 @@ public class AddProductController {
 
     @PostMapping("/pc")
     public ResponseEntity<?> addPc(@RequestBody PcFeaturesDTO pcFeaturesDTO) {
-        PcEntity savedPc;
-        try {
-            savedPc = addProductService.savePc(pcFeaturesDTO).get();
-        }
-        catch (NoSuchElementException ex) {
-            throw new NoSuchElementException();
+        PcEntity savedPc = addProductService.savePc(pcFeaturesDTO);
+        if (savedPc == null) {
+            throw new SavingRecordException();
         }
         long id = savedPc.getId();
         StringBuilder response = new StringBuilder("The id of saved pc is: " + id);
@@ -84,9 +71,9 @@ public class AddProductController {
     }
 
 
-    @ExceptionHandler({NoSuchElementException.class})
+    @ExceptionHandler({SavingRecordException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleException(NoSuchElementException exception) {
+    public ResponseEntity<String> handleException(SavingRecordException exception) {
         String savingRecordExceptionMessage = "Something went wrong during the saving the new record. Check input parameters\n";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage + exception.getMessage());
     }

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface LaptopRepository extends JpaRepository<LaptopEntity, Long> {
-    Optional<LaptopEntity> save(LaptopEntity laptopEntity);
+    LaptopEntity save(LaptopEntity laptopEntity);
 
     Optional<LaptopEntity> findById(long id);
 }

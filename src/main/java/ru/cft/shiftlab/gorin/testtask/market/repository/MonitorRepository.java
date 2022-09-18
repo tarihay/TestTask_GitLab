@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface MonitorRepository extends JpaRepository<MonitorEntity, Long> {
-    Optional<MonitorEntity> save(MonitorEntity monitorEntity);
+    MonitorEntity save(MonitorEntity monitorEntity);
 
     Optional<MonitorEntity> findById(long id);
 }

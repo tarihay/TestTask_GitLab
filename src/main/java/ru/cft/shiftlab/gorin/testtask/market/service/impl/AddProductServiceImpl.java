@@ -38,7 +38,7 @@ public class AddProductServiceImpl implements AddProductService {
     }
 
     @Override
-    public Optional<MonitorEntity> saveMonitor(MonitorFeaturesDTO monitorDTO) {
+    public MonitorEntity saveMonitor(MonitorFeaturesDTO monitorDTO) {
         MonitorEntity monitorEntity = new MonitorEntity();
         monitorEntity.setSerialNumber(monitorDTO.getSerialNumber());
         monitorEntity.setManufacturer(monitorDTO.getManufacturer());
@@ -52,7 +52,7 @@ public class AddProductServiceImpl implements AddProductService {
     }
 
     @Override
-    public Optional<LaptopEntity> saveLaptop(LaptopFeaturesDTO laptopDTO) {
+    public LaptopEntity saveLaptop(LaptopFeaturesDTO laptopDTO) {
         LaptopEntity laptopEntity = new LaptopEntity();
         laptopEntity.setSerialNumber(laptopDTO.getSerialNumber());
         laptopEntity.setManufacturer(laptopDTO.getManufacturer());
@@ -66,7 +66,7 @@ public class AddProductServiceImpl implements AddProductService {
     }
 
     @Override
-    public Optional<HddEntity> saveHdd(HddFeaturesDTO hddDTO) {
+    public HddEntity saveHdd(HddFeaturesDTO hddDTO) {
         HddEntity hddEntity = new HddEntity();
         hddEntity.setSerialNumber(hddDTO.getSerialNumber());
         hddEntity.setManufacturer(hddDTO.getManufacturer());
@@ -81,7 +81,7 @@ public class AddProductServiceImpl implements AddProductService {
     }
 
     @Override
-    public Optional<PcEntity> savePc(PcFeaturesDTO pcDTO) {
+    public PcEntity savePc(PcFeaturesDTO pcDTO) {
         PcEntity pcEntity = new PcEntity();
         pcEntity.setSerialNumber(pcDTO.getSerialNumber());
         pcEntity.setManufacturer(pcDTO.getManufacturer());

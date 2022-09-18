@@ -13,8 +13,8 @@ import ru.cft.shiftlab.gorin.testtask.market.repository.model.PcEntity;
 import java.util.Optional;
 
 public interface AddProductService {
-    Optional<MonitorEntity> saveMonitor(MonitorFeaturesDTO monitorDTO);
-    Optional<LaptopEntity> saveLaptop(LaptopFeaturesDTO laptopDTO);
-    Optional<HddEntity> saveHdd(HddFeaturesDTO hddDTO);
-    Optional<PcEntity> savePc(PcFeaturesDTO pcDTO);
+    MonitorEntity saveMonitor(MonitorFeaturesDTO monitorDTO);
+    LaptopEntity saveLaptop(LaptopFeaturesDTO laptopDTO);
+    HddEntity saveHdd(HddFeaturesDTO hddDTO);
+    PcEntity savePc(PcFeaturesDTO pcDTO);
 }
