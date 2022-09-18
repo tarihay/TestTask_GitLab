@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.ProductTypeNotFoundException;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.RecordNotFoundException;
 import ru.cft.shiftlab.gorin.testtask.market.exceptions.TooManyRecordsFoundException;
-import ru.cft.shiftlab.gorin.testtask.market.repository.model.ProductEntity;
+import ru.cft.shiftlab.gorin.testtask.market.repository.model.*;
 import ru.cft.shiftlab.gorin.testtask.market.service.SearchProductService;
 
 import java.util.List;
@@ -72,6 +72,39 @@ public class SearchProductController {
         }
     }
 
+    @GetMapping("/monitors")
+    public ResponseEntity<?> findAllMonitors() throws RecordNotFoundException {
+        List<MonitorEntity> monitors = searchProductService.findAllMonitors();
+        if (monitors == null) {
+            throw new RecordNotFoundException();
+        }
+        return new ResponseEntity<>(monitors, HttpStatus.OK);
+    }
+    @GetMapping("/hdds")
+    public ResponseEntity<?> findAllHdds() throws RecordNotFoundException {
+        List<HddEntity> hdds = searchProductService.findAllHdds();
+        if (hdds == null) {
+            throw new RecordNotFoundException();
+        }
+        return new ResponseEntity<>(hdds, HttpStatus.OK);
+    }
+    @GetMapping("/laptops")
+    public ResponseEntity<?> findAllLaptops() throws RecordNotFoundException {
+        List<LaptopEntity> laptops = searchProductService.findAllLaptops();
+        if (laptops == null) {
+            throw new RecordNotFoundException();
+        }
+        return new ResponseEntity<>(laptops, HttpStatus.OK);
+    }
+    @GetMapping("/pcs")
+    public ResponseEntity<?> findAllPcs() throws RecordNotFoundException {
+        List<PcEntity> pcs = searchProductService.findAllPcs();
+        if (pcs == null) {
+            throw new RecordNotFoundException();
+        }
+        return new ResponseEntity<>(pcs, HttpStatus.OK);
+    }
+
 
     @ExceptionHandler({NoSuchElementException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -83,7 +116,7 @@ public class SearchProductController {
     @ExceptionHandler({RecordNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handleException(RecordNotFoundException exception) {
-        String recordNotFoundMessage = "Record with such id was not found.\n";
+        String recordNotFoundMessage = "Records were not found.\n";
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(recordNotFoundMessage);
     }
 

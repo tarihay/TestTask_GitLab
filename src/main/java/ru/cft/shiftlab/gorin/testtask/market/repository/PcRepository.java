@@ -13,4 +13,5 @@ public interface PcRepository extends JpaRepository<PcEntity, Long> {
     PcEntity save(PcEntity pcEntity);
 
     Optional<PcEntity> findById(long id);
+    List<PcEntity> findAll();
 }

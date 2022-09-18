@@ -39,19 +39,33 @@ public class SearchProductServiceImpl implements SearchProductService {
     public Optional<HddEntity> findHddById(long id) {
         return hddRepository.findById(id);
     }
-
     @Override
     public Optional<LaptopEntity> findLaptopById(long id) {
         return laptopRepository.findById(id);
     }
-
     @Override
     public Optional<MonitorEntity> findMonitorById(long id) {
         return monitorRepository.findById(id);
     }
-
     @Override
     public Optional<PcEntity> findPcById(long id) {
         return pcRepository.findById(id);
+    }
+
+    @Override
+    public List<HddEntity> findAllHdds() {
+        return hddRepository.findAll();
+    }
+    @Override
+    public List<LaptopEntity> findAllLaptops() {
+        return laptopRepository.findAll();
+    }
+    @Override
+    public List<MonitorEntity> findAllMonitors() {
+        return monitorRepository.findAll();
+    }
+    @Override
+    public List<PcEntity> findAllPcs() {
+        return pcRepository.findAll();
     }
 }
