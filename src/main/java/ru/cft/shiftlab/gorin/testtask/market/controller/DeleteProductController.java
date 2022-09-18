@@ -41,13 +41,15 @@ public class DeleteProductController {
     @ExceptionHandler({RecordNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handleException(RecordNotFoundException exception) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+        String recordNotFoundMessage = "Record with such id was not found.\n";
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(recordNotFoundMessage);
     }
 
     @ExceptionHandler({TooManyRecordsFoundException.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<String> handleException(TooManyRecordsFoundException exception) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exception.getMessage());
+        String tooManyRecordsFoundMessage = "Accidentally found several records\n";
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(tooManyRecordsFoundMessage);
     }
 
 }
