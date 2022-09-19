@@ -4,6 +4,11 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
+/**
+ * Сущность монитора. Наследуется от сущности товара.
+ * Поля хранятся в таблице "monitors"
+ * @see ProductEntity
+ */
 @Entity
 @Table(name = "monitors")
 public class MonitorEntity extends ProductEntity{
@@ -18,5 +23,12 @@ public class MonitorEntity extends ProductEntity{
 
     public void setDiagonalSize(int diagonalSize) {
         this.diagonalSize = diagonalSize;
+    }
+
+    @Override
+    public String toString() {
+        return "MonitorEntity{ " +
+                "diagonalSize=" + diagonalSize +
+                '}';
     }
 }

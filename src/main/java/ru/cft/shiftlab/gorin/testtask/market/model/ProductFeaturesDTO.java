@@ -1,7 +1,13 @@
 package ru.cft.shiftlab.gorin.testtask.market.model;
 
 import ru.cft.shiftlab.gorin.testtask.market.model.enums.ProductType;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.ProductEntity;
 
+/**
+ * Data Transfer Object, который отправляется с post-запросом при работе с товаром магазина
+ * Поля DTO совпадают с сущностью товара
+ * @see ProductEntity
+ */
 public class ProductFeaturesDTO {
     private String serialNumber;
 
@@ -51,5 +57,17 @@ public class ProductFeaturesDTO {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ProductFeaturesDTO {" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", priceValue=" + priceValue +
+                ", amount=" + amount +
+                ", productType=" + productType +
+                '}';
     }
 }

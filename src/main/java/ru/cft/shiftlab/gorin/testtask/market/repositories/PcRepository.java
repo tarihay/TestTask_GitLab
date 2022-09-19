@@ -7,6 +7,11 @@ import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Интерфейс-Репозиторий, работающий с сущностью ПК. Наследуется от Jpa-репозитория. Имплементация не нужна
+ * @see JpaRepository
+ * @see PcEntity
+ */
 @Repository
 public interface PcRepository extends JpaRepository<PcEntity, Long> {
     PcEntity save(PcEntity pcEntity);

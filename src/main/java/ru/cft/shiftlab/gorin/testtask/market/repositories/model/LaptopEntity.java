@@ -5,6 +5,11 @@ import ru.cft.shiftlab.gorin.testtask.market.model.enums.LaptopSize;
 
 import javax.persistence.*;
 
+/**
+ * Сущность ноутбука. Наследуется от сущности товара.
+ * Поля хранятся в таблице "laptops"
+ * @see ProductEntity
+ */
 @Entity
 @Table(name = "laptops")
 public class LaptopEntity extends ProductEntity{
@@ -18,5 +23,12 @@ public class LaptopEntity extends ProductEntity{
 
     public void setSize(LaptopSize size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "LaptopEntity {" +
+                "size=" + size +
+                '}';
     }
 }

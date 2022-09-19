@@ -7,6 +7,11 @@ import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Интерфейс-Репозиторий, работающий с сущностью монитора. Наследуется от Jpa-репозитория. Имплементация не нужна
+ * @see JpaRepository
+ * @see MonitorEntity
+ */
 @Repository
 public interface MonitorRepository extends JpaRepository<MonitorEntity, Long> {
     MonitorEntity save(MonitorEntity monitorEntity);

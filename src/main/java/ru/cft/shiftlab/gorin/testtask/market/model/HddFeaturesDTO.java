@@ -1,9 +1,13 @@
 package ru.cft.shiftlab.gorin.testtask.market.model;
 
 import ru.cft.shiftlab.gorin.testtask.market.model.enums.MemoryVolumeOptions;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.HddEntity;
 
-import javax.persistence.Column;
-
+/**
+ * Data Transfer Object, который отправляется с post-запросом при работе с Жестким Диском
+ * Поля DTO совпадают с сущностью жесткого диска
+ * @see HddEntity
+ */
 public class HddFeaturesDTO extends ProductFeaturesDTO {
     private int memoryVolumeValue;
 
@@ -25,4 +29,12 @@ public class HddFeaturesDTO extends ProductFeaturesDTO {
         this.memoryVolume = memoryVolume;
     }
 
+
+    @Override
+    public String toString() {
+        return "HddFeaturesDTO {" +
+                "memoryVolumeValue=" + memoryVolumeValue +
+                ", memoryVolume=" + memoryVolume +
+                '}';
+    }
 }

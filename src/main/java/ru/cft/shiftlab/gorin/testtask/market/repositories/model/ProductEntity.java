@@ -5,6 +5,15 @@ import ru.cft.shiftlab.gorin.testtask.market.model.enums.ProductType;
 
 import javax.persistence.*;
 
+/**
+ * Сущность товара. От нее наследуются сущность Пк, сущность монитора, сущность ноутбука и сущность жесткого диска.
+ * Наследование происходит с типом "Joined", т.е. таблицы сущностей и таблица товара связаны напрямую через id.
+ * Поля хранятся в таблице "products"
+ * @see HddEntity
+ * @see LaptopEntity
+ * @see MonitorEntity
+ * @see PcEntity
+ */
 @Entity
 @Table(name = "products")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -81,5 +90,18 @@ public abstract class ProductEntity {
     }
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ProductEntity {" +
+                "id=" + id +
+                ", serialNumber='" + serialNumber + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", priceValue=" + priceValue +
+                ", amount=" + amount +
+                ", productType=" + productType +
+                '}';
     }
 }

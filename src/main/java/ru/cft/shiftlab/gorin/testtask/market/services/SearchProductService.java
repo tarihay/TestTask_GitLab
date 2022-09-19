@@ -5,6 +5,9 @@ import ru.cft.shiftlab.gorin.testtask.market.repositories.model.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Сервис-Интерфейс, отвечающий за поиск товаров в базе данных. Нужна имплементация
+ */
 public interface SearchProductService {
     List<ProductEntity> findById(long id);
 

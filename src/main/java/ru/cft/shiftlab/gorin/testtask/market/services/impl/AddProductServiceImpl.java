@@ -1,7 +1,10 @@
 package ru.cft.shiftlab.gorin.testtask.market.services.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.cft.shiftlab.gorin.testtask.market.controllers.AddProductController;
 import ru.cft.shiftlab.gorin.testtask.market.model.HddFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.LaptopFeaturesDTO;
 import ru.cft.shiftlab.gorin.testtask.market.model.MonitorFeaturesDTO;
@@ -16,8 +19,13 @@ import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
 import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
 import ru.cft.shiftlab.gorin.testtask.market.services.AddProductService;
 
+/**
+ * Имплементация Сервиса-Интерфейса по добавлению товаров
+ * @see AddProductService
+ */
 @Service
 public class AddProductServiceImpl implements AddProductService {
+    private static final Logger logger = LogManager.getLogger(AddProductServiceImpl.class);
 
     private final HddRepository hddRepository;
     private final MonitorRepository monitorRepository;
@@ -35,6 +43,14 @@ public class AddProductServiceImpl implements AddProductService {
         this.pcRepository = pcRepository;
     }
 
+    /**
+     * Метод парсит пришедшее DTO монитора в сущность и отправляет на сохранение репозиторию
+     * @param monitorDTO поступившее в post-запросе DTO монитора
+     * @return возвращает контроллеру сохраненную сущность
+     * @see AddProductController
+     * @see MonitorEntity
+     * @see MonitorFeaturesDTO
+     */
     @Override
     public MonitorEntity saveMonitor(MonitorFeaturesDTO monitorDTO) {
         MonitorEntity monitorEntity = new MonitorEntity();
@@ -46,9 +62,19 @@ public class AddProductServiceImpl implements AddProductService {
 
         monitorEntity.setDiagonalSize(monitorDTO.getDiagonalSize());
 
+        logger.info("MonitorDTO " + monitorDTO + " successfully unparsed");
+
         return monitorRepository.save(monitorEntity);
     }
 
+    /**
+     * Метод парсит пришедшее DTO ноутбука в сущность и отправляет на сохранение репозиторию
+     * @param laptopDTO поступившее в post-запросе DTO ноутбука
+     * @return возвращает контроллеру сохраненную сущность
+     * @see AddProductController
+     * @see LaptopEntity
+     * @see LaptopFeaturesDTO
+     */
     @Override
     public LaptopEntity saveLaptop(LaptopFeaturesDTO laptopDTO) {
         LaptopEntity laptopEntity = new LaptopEntity();
@@ -60,9 +86,19 @@ public class AddProductServiceImpl implements AddProductService {
 
         laptopEntity.setSize(laptopDTO.getSize());
 
+        logger.info("LaptopDTO " + laptopDTO + " successfully unparsed");
+
         return laptopRepository.save(laptopEntity);
     }
 
+    /**
+     * Метод парсит пришедшее DTO жесткого диска в сущность и отправляет на сохранение репозиторию
+     * @param hddDTO поступившее в post-запросе DTO жесткого диска
+     * @return возвращает контроллеру сохраненную сущность
+     * @see AddProductController
+     * @see HddEntity
+     * @see HddFeaturesDTO
+     */
     @Override
     public HddEntity saveHdd(HddFeaturesDTO hddDTO) {
         HddEntity hddEntity = new HddEntity();
@@ -75,9 +111,19 @@ public class AddProductServiceImpl implements AddProductService {
         hddEntity.setMemoryVolumeValue(hddDTO.getMemoryVolumeValue());
         hddEntity.setMemoryVolume(hddDTO.getMemoryVolume());
 
+        logger.info("HddDTO " + hddDTO + " successfully unparsed");
+
         return hddRepository.save(hddEntity);
     }
 
+    /**
+     * Метод парсит пришедшее DTO ПК в сущность и отправляет на сохранение репозиторию
+     * @param pcDTO поступившее в post-запросе DTO ПК
+     * @return возвращает контроллеру сохраненную сущность
+     * @see AddProductController
+     * @see PcEntity
+     * @see PcFeaturesDTO
+     */
     @Override
     public PcEntity savePc(PcFeaturesDTO pcDTO) {
         PcEntity pcEntity = new PcEntity();
@@ -88,6 +134,8 @@ public class AddProductServiceImpl implements AddProductService {
         pcEntity.setProductType(pcDTO.getProductType());
 
         pcEntity.setFormFactor(pcDTO.getFormFactor());
+
+        logger.info("PcDTO " + pcDTO + " successfully unparsed");
 
         return pcRepository.save(pcEntity);
     }

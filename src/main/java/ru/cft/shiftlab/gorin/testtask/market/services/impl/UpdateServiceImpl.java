@@ -12,6 +12,10 @@ import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
 import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
 import ru.cft.shiftlab.gorin.testtask.market.services.UpdateService;
 
+/**
+ * Имплементация Сервиса-Интерфейса по обновлению полей товаров
+ * @see UpdateService
+ */
 @Service
 public class UpdateServiceImpl implements UpdateService {
     private final HddRepository hddRepository;

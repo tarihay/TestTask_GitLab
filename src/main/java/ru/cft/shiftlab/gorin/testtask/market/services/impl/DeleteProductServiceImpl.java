@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import ru.cft.shiftlab.gorin.testtask.market.repositories.ProductRepository;
 import ru.cft.shiftlab.gorin.testtask.market.services.DeleteProductService;
 
+/**
+ * Имплементация Сервиса-Интерфейса по удалению товаров
+ * @see DeleteProductService
+ */
 @Service
 public class DeleteProductServiceImpl implements DeleteProductService {
     private final ProductRepository productRepository;

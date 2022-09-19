@@ -10,6 +10,9 @@ import ru.cft.shiftlab.gorin.testtask.market.repositories.model.LaptopEntity;
 import ru.cft.shiftlab.gorin.testtask.market.repositories.model.MonitorEntity;
 import ru.cft.shiftlab.gorin.testtask.market.repositories.model.PcEntity;
 
+/**
+ * Сервис-Интерфейс, отвечающий за добавление товаров в базу данных. Нужна имплементация
+ */
 public interface AddProductService {
     MonitorEntity saveMonitor(MonitorFeaturesDTO monitorDTO);
     LaptopEntity saveLaptop(LaptopFeaturesDTO laptopDTO);

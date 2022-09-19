@@ -9,6 +9,10 @@ import ru.cft.shiftlab.gorin.testtask.market.services.SearchProductService;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Имплементация Сервиса-Интерфейса по поиску товаров
+ * @see SearchProductService
+ */
 @Service
 public class SearchProductServiceImpl implements SearchProductService {
     private final ProductRepository productRepository;

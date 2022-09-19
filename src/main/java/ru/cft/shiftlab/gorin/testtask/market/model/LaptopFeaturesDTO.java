@@ -1,9 +1,14 @@
 package ru.cft.shiftlab.gorin.testtask.market.model;
 
 import ru.cft.shiftlab.gorin.testtask.market.model.enums.LaptopSize;
+import ru.cft.shiftlab.gorin.testtask.market.repositories.model.LaptopEntity;
 
-import javax.persistence.Column;
 
+/**
+ * Data Transfer Object, который отправляется с post-запросом при работе с Ноутбуком
+ * Поля DTO совпадают с сущностью ноутбука
+ * @see LaptopEntity
+ */
 public class LaptopFeaturesDTO extends ProductFeaturesDTO {
     private LaptopSize size;
 
@@ -13,5 +18,12 @@ public class LaptopFeaturesDTO extends ProductFeaturesDTO {
 
     public void setSize(LaptopSize size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "LaptopFeaturesDTO {" +
+                "size=" + size +
+                '}';
     }
 }

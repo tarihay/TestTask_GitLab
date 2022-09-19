@@ -5,6 +5,11 @@ import ru.cft.shiftlab.gorin.testtask.market.model.enums.MemoryVolumeOptions;
 
 import javax.persistence.*;
 
+/**
+ * Сущность жесткого диска. Наследуется от сущности товара.
+ * Поля хранятся в таблице "hard_disk_drives"
+ * @see ProductEntity
+ */
 @Entity
 @Table(name = "hard_disk_drives")
 public class HddEntity extends ProductEntity {
@@ -31,5 +36,13 @@ public class HddEntity extends ProductEntity {
 
     public void setMemoryVolume(MemoryVolumeOptions memoryVolume) {
         this.memoryVolume = memoryVolume;
+    }
+
+    @Override
+    public String toString() {
+        return "HddEntity {" +
+                "memoryVolumeValue=" + memoryVolumeValue +
+                ", memoryVolume=" + memoryVolume +
+                '}';
     }
 }
