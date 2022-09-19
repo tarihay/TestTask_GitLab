@@ -31,7 +31,6 @@ public class DeleteProductController {
         this.searchProductService = searchProductService;
     }
 
-    //TODO добавить документацию к оставшимся классам и добавить логирование
     /**
      * Метод, обабатывающий Post-запрос, который требует удаления товара по идентификатору, указанному в endpoint'e
      * @param id указанный идентификатор
