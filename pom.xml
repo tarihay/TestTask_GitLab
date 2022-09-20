@@ -10,7 +10,7 @@
     </parent>
     <groupId>ru.cft.shiftlab.gorin.testTask</groupId>
     <artifactId>market</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>PCMarket</name>
     <description>PCMarket</description>
     <properties>
@@ -79,7 +79,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1</version>
+            </plugin>
         </plugins>
     </build>
+
 
 </project>

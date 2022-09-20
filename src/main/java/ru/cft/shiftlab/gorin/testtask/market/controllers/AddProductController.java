@@ -153,7 +153,7 @@ public class AddProductController {
     @ExceptionHandler({HttpMessageNotReadableException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleException(HttpMessageNotReadableException exception) {
-        String savingRecordExceptionMessage = "Looks like you have chosen wrong parameter.\nCheck form_factor if it is PC, memory_volume if HDD, size if it is laptop";
+        String savingRecordExceptionMessage = "Looks like you have chosen wrong parameter.\nCheck form_factor if it is PC, memory_volume if HDD, size if it is laptop. Or it could be another parsing error";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(savingRecordExceptionMessage);
     }
 }
