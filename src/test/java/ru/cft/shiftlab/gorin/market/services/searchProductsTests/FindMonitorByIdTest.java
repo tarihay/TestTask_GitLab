@@ -45,7 +45,7 @@ public class FindMonitorByIdTest {
      * Positive case test
      */
     @Test
-    public void searchingExistingHddTest() {
+    public void searchingExistingMonitorTest() {
         when(monitorRepository.findById(monitor.getId())).thenReturn(Optional.ofNullable(monitor));
         assertThat(searchProductService.findMonitorById(monitor.getId()).get()).isEqualTo(monitor);
     }
@@ -54,7 +54,7 @@ public class FindMonitorByIdTest {
      * Negative case test
      */
     @Test
-    public void searchingNotExistingHddTest() {
+    public void searchingNotExistingMonitorTest() {
         when(monitorRepository.findById(monitor.getId())).thenReturn(Optional.ofNullable(monitor));
         assertThat(searchProductService.findMonitorById(monitor.getId()).get()).isNotEqualTo(fakeMonitor);
     }

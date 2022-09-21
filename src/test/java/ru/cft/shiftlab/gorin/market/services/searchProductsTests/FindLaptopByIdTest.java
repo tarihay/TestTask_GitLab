@@ -46,7 +46,7 @@ public class FindLaptopByIdTest {
      * Positive case test
      */
     @Test
-    public void searchingExistingHddTest() {
+    public void searchingExistingLaptopTest() {
         when(laptopRepository.findById(laptop.getId())).thenReturn(Optional.ofNullable(laptop));
         assertThat(searchProductService.findLaptopById(laptop.getId()).get()).isEqualTo(laptop);
     }
@@ -55,7 +55,7 @@ public class FindLaptopByIdTest {
      * Negative case test
      */
     @Test
-    public void searchingNotExistingHddTest() {
+    public void searchingNotExistingLaptopTest() {
         when(laptopRepository.findById(laptop.getId())).thenReturn(Optional.ofNullable(laptop));
         assertThat(searchProductService.findLaptopById(laptop.getId()).get()).isNotEqualTo(fakeLaptop);
     }

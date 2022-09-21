@@ -46,7 +46,7 @@ public class FindPcByIdTest {
      * Positive case test
      */
     @Test
-    public void searchingExistingHddTest() {
+    public void searchingExistingPcTest() {
         when(pcRepository.findById(pc.getId())).thenReturn(Optional.ofNullable(pc));
         assertThat(searchProductService.findPcById(pc.getId()).get()).isEqualTo(pc);
     }
@@ -55,7 +55,7 @@ public class FindPcByIdTest {
      * Negative case test
      */
     @Test
-    public void searchingNotExistingHddTest() {
+    public void searchingNotExistingPcTest() {
         when(pcRepository.findById(pc.getId())).thenReturn(Optional.ofNullable(pc));
         assertThat(searchProductService.findPcById(pc.getId()).get()).isNotEqualTo(fakePc);
     }
