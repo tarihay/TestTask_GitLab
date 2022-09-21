@@ -80,7 +80,7 @@ TEST TASK FOR SHIFTLAB
   - Контроллер **удаления** товаров (`DeleteProductController`)
   - Контроллер **обновления** данных уже существующих товаров (`UpdateProductController`)
 
-Небольшая UML-диаграмма проекта выглядит так: <br>
+Небольшая UML-диаграмма взаимосвязи классов в проекте выглядит так: <br>
 ![project_UML](https://github.com/tarihay/TestTask_ShiftLab/blob/master/project_Logic_Uml.png)
 
 О каждом контроллере поговорим отдельно.
